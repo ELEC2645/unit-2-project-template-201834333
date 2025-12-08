@@ -1,37 +1,61 @@
 [![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-2972f46106e565e64193e422d61a12cf1da4916b45550586e14ef0a7c637dd04.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=21901920)
-# ELEC2645 Unit 2 Project Template
+# ELEC2645 Unit 2 – Command Line Converter
 
-** PLEASE DELETE THIS README AND REPLACE IT WITH YOUR OWN README.md FILE DESCRIBING YOUR PROJECT **
+This project is a command-line application that performs several engineering-related conversions. The program uses the menu system provided in the template (main.c), and all conversion functions are implemented inside funcs.c. The function prototypes are stored in funcs.h.
 
+## 1. Project Overview
 
-This is the basic code for a command line application which you should use for your Unit 2 project.
+The program supports the following conversions:
 
-The code has separated the menu handling code in `main.c` and the function implementations in `funcs.c`. You should add your code to `funcs.c` (or you can create new files if you wish), and update `main.c` to call your functions from the menu.
+• dBm ↔ mW  
+• Hz ↔ rad/s  
+• Temperature conversions (Celsius ↔ Kelvin, Celsius ↔ Fahrenheit, Fahrenheit ↔ Celsius)  
+• Engineering prefixes (k, M, m, u, n, p)  
+• Saving and displaying conversion history
 
+Every conversion performed by the user is stored in a file called history.txt, which is created automatically.
 
-### 1 Run code
+## 2. File Structure
 
-You can build the code as we have been using in the labs with 
-`gcc main.c funcs.c -o main.out -lm` (the `-lm` is required to link the math library). You can also use `make -B` to force a rebuild using the provided `Makefile`.
+main.c      – provided template handling menu and input  
+funcs.c     – my implementation of all conversions and history functions  
+funcs.h     – function prototypes  
+history.txt – created automatically after running the program  
+Makefile    – provided for compilation  
+README.md   – this file
 
-Then run the code with `./main.out`
+I did not modify main.c except for using the menu functions already provided. All required logic is written in funcs.c.
 
+## 3. How to Compile
 
-### 2 The assignment
+To compile using GCC:
 
-Please read the assignment brief on the Minerva page for details of what you need to implement. 
+gcc main.c funcs.c -o main.out -lm
 
+The -lm flag links the math library.
 
+You can also compile using the provided Makefile:
 
-### 3 Test command
+make -B
 
-The `test.sh` script is provided to check that your code compiles correctly. This is what the autograder will use to check your submission. You can run it with `bash test.sh` or `./test.sh` or just `make test`. 
+## 4. How to Run
 
-You do not need to modify this script, but you can look at it to see what it does.
+After compiling:
 
+./main.out
 
-### 4 Submit Solution
+## 5. How to Use the Program
 
-Use the same method as previous labs to commit and push your code to your GitHub repository for the autograder to check. 
+1. Run the program to open the main menu.  
+2. Select one of the menu items (1–4).  
+3. Enter the value requested by the program.  
+4. The result is printed and saved to history.txt.  
+5. Press 'b' or 'B' to return to the main menu.  
+6. Select item 4 to view the saved history.  
+7. Select item 5 to exit the program.
 
-In your final journal post, please include a link to your GitHub repository containing your code  *and* a zip file of your code as an attachment.
+## 6. Notes
+
+- history.txt is created automatically after the first conversion.  
+- Input checking is already handled safely inside main.c from the provided template.  
+- All required functionality for Unit 2 is implemented inside funcs.c as instructed.
